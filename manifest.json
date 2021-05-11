@@ -19,7 +19,7 @@
     "license": "GPL-3.0",
     "maintainer": {
         "name": "Augustin Rungeard",
-        "email": "",
+        "email": ""
     },
     "requirements": {
         "yunohost": ">= 4.2.4"
