@@ -119,7 +119,12 @@ ynh_setup_source --dest_dir="$final_path"
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
 # this will be treated as a security issue.
 
-mv $final_path/'example-singleServer-pretty.html' "$final_path/index.html"
+mv $final_path/'example-singleServer-full.html' "$final_path/index.html"
+
+chmod 750 "$final_path"
+chown -R $app:www-data $final_path
+chmod o-rwx $final_path
+
 
 #=================================================
 # NGINX CONFIGURATION
@@ -171,14 +176,6 @@ ynh_replace_string --match_string="enable_id_obfuscation = false" --replace_stri
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-
-# Set permissions to app files
-chmod 750 "$final_path"
-chown -R $app:www-data $final_path
-chmod o-rwx $final_path
-
 
 #=================================================
 # SETUP SSOWAT
