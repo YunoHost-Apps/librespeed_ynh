@@ -75,7 +75,7 @@ chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
 
-mv $final_path/'example-singleServer-full.html' "$final_path/index.html"
+#mv $final_path/'example-singleServer-full.html' "$final_path/index.html"
 
 #=================================================
 # RESTORE THE PHP-FPM CONFIGURATION

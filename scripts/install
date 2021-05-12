@@ -162,10 +162,10 @@ ynh_script_progression --message="Configuring LibreSpeed..."
 rc_conf="$final_path/results/telemetry_settings.php"
 
 ynh_replace_string --match_string="stats_password = 'PASSWORD'" --replace_string="stats_password = '$password'" --target_file="$rc_conf"
-ynh_replace_string --match_string="USERNAME" --replace_string="$db_user" --target_file="$rc_conf"
+ynh_replace_string --match_string="MySql_username = 'USERNAME'" --replace_string="MySql_username = '$db_user'" --target_file="$rc_conf"
 ynh_replace_string --match_string="MySql_password = 'PASSWORD'" --replace_string="MySql_password = '$db_pwd'" --target_file="$rc_conf"
-ynh_replace_string --match_string="DB_NAME" --replace_string="$db_name" --target_file="$rc_conf"
-ynh_replace_string --match_string="DB_HOSTNAME" --replace_string="localhost" --target_file="$rc_conf"
+ynh_replace_string --match_string="MySql_databasename = 'DB_NAME'" --replace_string="MySql_databasename = '$db_name'" --target_file="$rc_conf"
+ynh_replace_string --match_string="MySql_hostname = 'DB_HOSTNAME'" --replace_string="MySql_hostname = 'localhost'" --target_file="$rc_conf"
 ynh_replace_string --match_string="enable_id_obfuscation = false" --replace_string="enable_id_obfuscation = true" --target_file="$rc_conf"
 
 #=================================================
@@ -175,9 +175,10 @@ ynh_replace_string --match_string="enable_id_obfuscation = false" --replace_stri
 #=================================================
 
 # Set permissions to app files
+chmod 750 "$final_path"
 chown -R $app:www-data $final_path
 chmod o-rwx $final_path
-#chmod 750 "$final_path"
+
 
 #=================================================
 # SETUP SSOWAT
