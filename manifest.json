@@ -3,10 +3,10 @@
     "id": "librespeed",
     "packaging_format": 1,
     "description": {
-        "en": "This is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.",
-        "fr": "Test de vitesse de connexion très léger implémenté en Javascript, utilisant XMLHttpRequest et Web Workers."
+        "en": "Very lightweight Speedtest.",
+        "fr": "Test de vitesse de connexion très léger."
     },
-    "version": "1.0~ynh1",
+    "version": "5.2.4~ynh1",
     "url": "https://librespeed.org/",
     "upstream": {
         "license": "GPL-3.0",
@@ -56,6 +56,15 @@
                     "fr": "Ce mot de passe permet d'accéder aux statistiques des tests"
                 },
                 "example": "Choose a password"
+            },
+            {
+                "name": "mail",
+                "type": "string",
+                "help": {
+                    "en": "Email address to contact for stats deletion requests",
+                    "fr": "Couriel à contacter pour demander une suppression des statistiques"
+                },
+                "example": "webmaster@example.com"
             }
         ]
     }

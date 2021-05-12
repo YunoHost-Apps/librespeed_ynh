@@ -28,6 +28,7 @@ domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
 is_public=$YNH_APP_ARG_IS_PUBLIC
 password=$YNH_APP_ARG_PASSWORD
+mail=$YNH_APP_ARG_MAIL
 
 ### If it's a multi-instance app, meaning it can be installed several times independently
 ### The id of the app as stated in the manifest is available as $YNH_APP_ID
@@ -119,8 +120,6 @@ ynh_setup_source --dest_dir="$final_path"
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
 # this will be treated as a security issue.
 
-#mv $final_path/'example-singleServer-full.html' "$final_path/index.html"
-
 chmod 750 "$final_path"
 chown -R $app:www-data $final_path
 chmod o-rwx $final_path
@@ -163,14 +162,17 @@ ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name
 #=================================================
 ynh_script_progression --message="Configuring LibreSpeed..."
 
-rc_conf="$final_path/results/telemetry_settings.php"
+conf_telemetry="$final_path/results/telemetry_settings.php"
+conf_index="$final_path/example-singleServer-full.html"
 
-ynh_replace_string --match_string="stats_password = 'PASSWORD'" --replace_string="stats_password = '$password'" --target_file="$rc_conf"
-ynh_replace_string --match_string="MySql_username = 'USERNAME'" --replace_string="MySql_username = '$db_user'" --target_file="$rc_conf"
-ynh_replace_string --match_string="MySql_password = 'PASSWORD'" --replace_string="MySql_password = '$db_pwd'" --target_file="$rc_conf"
-ynh_replace_string --match_string="MySql_databasename = 'DB_NAME'" --replace_string="MySql_databasename = '$db_name'" --target_file="$rc_conf"
-ynh_replace_string --match_string="MySql_hostname = 'DB_HOSTNAME'" --replace_string="MySql_hostname = 'localhost'" --target_file="$rc_conf"
-ynh_replace_string --match_string="enable_id_obfuscation = false" --replace_string="enable_id_obfuscation = true" --target_file="$rc_conf"
+ynh_replace_string --match_string="stats_password = 'PASSWORD'" --replace_string="stats_password = '$password'" --target_file="$conf_telemetry"
+ynh_replace_string --match_string="MySql_username = 'USERNAME'" --replace_string="MySql_username = '$db_user'" --target_file="$conf_telemetry"
+ynh_replace_string --match_string="MySql_password = 'PASSWORD'" --replace_string="MySql_password = '$db_pwd'" --target_file="$conf_telemetry"
+ynh_replace_string --match_string="MySql_databasename = 'DB_NAME'" --replace_string="MySql_databasename = '$db_name'" --target_file="$conf_telemetry"
+ynh_replace_string --match_string="MySql_hostname = 'DB_HOSTNAME'" --replace_string="MySql_hostname = 'localhost'" --target_file="$conf_telemetry"
+ynh_replace_string --match_string="enable_id_obfuscation = false" --replace_string="enable_id_obfuscation = true" --target_file="$conf_telemetry"
+
+ynh_replace_string --match_string='<a href="mailto:PUT@YOUR_EMAIL.HERE">TO BE FILLED BY DEVELOPER</a>.' --replace_string='<a href="mailto:'$mail'">'$mail'</a>.' --target_file="$conf_index"
 
 #=================================================
 # GENERIC FINALIZATION
