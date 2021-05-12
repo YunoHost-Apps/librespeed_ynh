@@ -173,9 +173,11 @@ ynh_replace_string --match_string="enable_id_obfuscation = false" --replace_stri
 #=================================================
 # SECURE FILES AND DIRECTORIES
 #=================================================
+
+# Set permissions to app files
+chown -R $app:www-data $final_path
+chmod o-rwx $final_path
 #chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
 
 #=================================================
 # SETUP SSOWAT
