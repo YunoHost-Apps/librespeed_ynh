@@ -19,9 +19,9 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-This is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.
+Very lightweight Speedtest.
 
-**Shipped version:** 1.0~ynh1
+**Shipped version:** 5.2.4~ynh1
 
 **Demo:** https://librespeed.org/
 
@@ -37,17 +37,10 @@ This is a very lightweight Speedtest implemented in Javascript, using XMLHttpReq
 ## Disclaimers / important information
 
 * Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
+    * Please visit [Troubleshooting, common problems, known limitations](https://github.com/librespeed/speedtest/wiki/Troubleshooting,-common-problems,-known-limitations) for more informations.
 
 * Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
+    * A basic front-end for visualizing and searching tests by ID is available in `domain.tld/results/stats.php`. A password is asked to you during installation steps to access this page. 
 
 
 
