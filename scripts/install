@@ -119,7 +119,7 @@ ynh_setup_source --dest_dir="$final_path"
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
 # this will be treated as a security issue.
 
-mv $final_path/'example-singleServer-full.html' "$final_path/index.html"
+mv $final_path/'example-singleServer-pretty.html' "$final_path/index.html"
 
 #=================================================
 # NGINX CONFIGURATION
