@@ -9,14 +9,14 @@
     "version": "5.2.4~ynh1",
     "url": "https://librespeed.org/",
     "upstream": {
-        "license": "GPL-3.0",
+        "license": "LGPL-3.0-or-later",
         "website": "https://librespeed.org/",
         "demo": "https://librespeed.org/",
-        "admindoc": "https://yunohost.org/packaging_apps",
-        "userdoc": "https://yunohost.org/apps",
+        "admindoc": "https://github.com/librespeed/speedtest/wiki",
+        "userdoc": "https://github.com/librespeed/speedtest/wiki",
         "code": "https://github.com/librespeed/speedtest"
     },
-    "license": "GPL-3.0",
+    "license": "LGPL-3.0-or-later",
     "maintainer": {
         "name": "Augustin Rungeard",
         "email": ""

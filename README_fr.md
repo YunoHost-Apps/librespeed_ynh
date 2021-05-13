@@ -28,10 +28,11 @@ Test de vitesse de connexion très léger.
 
 ## Avertissements / informations importantes
 
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
+* Any known limitations, constrains or stuff not working :
     * Please visit [Troubleshooting, common problems, known limitations](https://github.com/librespeed/speedtest/wiki/Troubleshooting,-common-problems,-known-limitations) for more informations.
+    * Important: ID obfuscation currently only works on 64-bit PHP! You might want to set `$redact_ip_addresses` to true in `results/telemetry_settings.php`, this way, all IP addresses will be removed from the telemetry for better privacy. This is disabled by default.
 
-* Other infos that people should be aware of, such as:
+* Other infos that people should be aware of :
     * A basic front-end for visualizing and searching tests by ID is available in `domain.tld/results/stats.php`. A password is asked to you during installation steps to access this page. 
 
 
@@ -39,8 +40,8 @@ Test de vitesse de connexion très léger.
 ## Documentations et ressources
 
 * Site official de l'app : https://librespeed.org/
-* Documentation officielle utilisateur: https://yunohost.org/apps
-* Documentation officielle de l'admin: https://yunohost.org/packaging_apps
+* Documentation officielle utilisateur: https://github.com/librespeed/speedtest/wiki
+* Documentation officielle de l'admin: https://github.com/librespeed/speedtest/wiki
 * Dépôt de code officiel de l'app:  https://github.com/librespeed/speedtest
 * Documentation YunoHost pour cette app: https://yunohost.org/app_librespeed
 * Signaler un bug: https://github.com/YunoHost-Apps/librespeed_ynh/issues
