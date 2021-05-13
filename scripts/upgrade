@@ -150,6 +150,7 @@ then
     ynh_replace_string --match_string="MySql_hostname = 'DB_HOSTNAME'" --replace_string="MySql_hostname = 'localhost'" --target_file="$conf_telemetry"
 
     ynh_replace_string --match_string='<a href="mailto:PUT@YOUR_EMAIL.HERE">TO BE FILLED BY DEVELOPER</a>.' --replace_string='<a href="mailto:'$mail'">'$mail'</a>.' --target_file="$conf_index"
+    ynh_replace_string --match_string='LibreSpeed Example' --replace_string='LibreSpeed YunoHost' --target_file="$conf_index"
 
 fi
 
