@@ -110,8 +110,6 @@ chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
 chown -R $app:www-data "$final_path"
 
-mv $final_path/'example-singleServer-full.html' "$final_path/index.html"
-
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
@@ -142,14 +140,16 @@ then
     db_user=$db_name
     db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
     
-    rc_conf="$final_path/results/telemetry_settings.php"
+    conf_telemetry="$final_path/results/telemetry_settings.php"
+    conf_index="$final_path/example-singleServer-full.html"
 
-    ynh_replace_string --match_string="stats_password = 'PASSWORD'" --replace_string="stats_password = '$password'" --target_file="$rc_conf"
-    ynh_replace_string --match_string="USERNAME" --replace_string="$db_user" --target_file="$rc_conf"
-    ynh_replace_string --match_string="MySql_password = 'PASSWORD'" --replace_string="MySql_password = '$db_pwd'" --target_file="$rc_conf"
-    ynh_replace_string --match_string="DB_NAME" --replace_string="$db_name" --target_file="$rc_conf"
-    ynh_replace_string --match_string="DB_HOSTNAME" --replace_string="localhost" --target_file="$rc_conf"
-    ynh_replace_string --match_string="enable_id_obfuscation = false" --replace_string="enable_id_obfuscation = true" --target_file="$rc_conf"
+    ynh_replace_string --match_string="stats_password = 'PASSWORD'" --replace_string="stats_password = '$password'" --target_file="$conf_telemetry"
+    ynh_replace_string --match_string="MySql_username = 'USERNAME'" --replace_string="MySql_username = '$db_user'" --target_file="$conf_telemetry"
+    ynh_replace_string --match_string="MySql_password = 'PASSWORD'" --replace_string="MySql_password = '$db_pwd'" --target_file="$conf_telemetry"
+    ynh_replace_string --match_string="MySql_databasename = 'DB_NAME'" --replace_string="MySql_databasename = '$db_name'" --target_file="$conf_telemetry"
+    ynh_replace_string --match_string="MySql_hostname = 'DB_HOSTNAME'" --replace_string="MySql_hostname = 'localhost'" --target_file="$conf_telemetry"
+
+    ynh_replace_string --match_string='<a href="mailto:PUT@YOUR_EMAIL.HERE">TO BE FILLED BY DEVELOPER</a>.' --replace_string='<a href="mailto:'$mail'">'$mail'</a>.' --target_file="$conf_index"
 
 fi
 
