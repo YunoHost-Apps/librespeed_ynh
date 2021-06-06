@@ -15,7 +15,7 @@ Test de vitesse de connexion très léger.
 
 **Version incluse :** 5.2.4~ynh1
 
-**Démo :** https://librespeed.org/
+**Démo :** https://librespeed.org
 
 ## Captures d'écran
 
@@ -32,7 +32,7 @@ Test de vitesse de connexion très léger.
 
 ## Documentations et ressources
 
-* Site officiel de l'app : https://librespeed.org/
+* Site officiel de l'app : https://librespeed.org
 * Documentation officielle utilisateur : https://github.com/librespeed/speedtest/wiki
 * Documentation officielle de l'admin : https://github.com/librespeed/speedtest/wiki
 * Dépôt de code officiel de l'app : https://github.com/librespeed/speedtest
