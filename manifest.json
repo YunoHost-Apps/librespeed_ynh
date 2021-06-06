@@ -64,6 +64,10 @@
             {
                 "name": "mail",
                 "type": "string",
+                "ask": {
+                    "en": "E-mail adress to contact",
+                    "fr": "Couriel de contact"
+                },
                 "help": {
                     "en": "Email address to contact for stats deletion requests",
                     "fr": "Couriel à contacter pour demander une suppression des statistiques"
