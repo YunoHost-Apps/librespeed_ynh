@@ -19,7 +19,7 @@ Very lightweight Speedtest.
 
 **Shipped version:** 5.2.4~ynh1
 
-**Demo:** https://librespeed.org/
+**Demo:** https://librespeed.org
 
 ## Screenshots
 
@@ -36,7 +36,7 @@ Very lightweight Speedtest.
 
 ## Documentation and resources
 
-* Official app website: https://librespeed.org/
+* Official app website: https://librespeed.org
 * Official user documentation: https://github.com/librespeed/speedtest/wiki
 * Official admin documentation: https://github.com/librespeed/speedtest/wiki
 * Upstream app code repository: https://github.com/librespeed/speedtest

@@ -7,11 +7,11 @@
         "fr": "Test de vitesse de connexion très léger."
     },
     "version": "5.2.4~ynh1",
-    "url": "https://librespeed.org/",
+    "url": "https://librespeed.org",
     "upstream": {
         "license": "LGPL-3.0-or-later",
-        "website": "https://librespeed.org/",
-        "demo": "https://librespeed.org/",
+        "website": "https://librespeed.org",
+        "demo": "https://librespeed.org",
         "admindoc": "https://github.com/librespeed/speedtest/wiki",
         "userdoc": "https://github.com/librespeed/speedtest/wiki",
         "code": "https://github.com/librespeed/speedtest"
@@ -19,7 +19,7 @@
     "license": "LGPL-3.0-or-later",
     "maintainer": {
         "name": "Augustin Rungeard",
-        "email": ""
+        "email": "augustin@rungeard.eu"
     },
     "requirements": {
         "yunohost": ">= 4.2.4"
