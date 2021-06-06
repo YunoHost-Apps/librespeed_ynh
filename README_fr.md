@@ -1,30 +1,25 @@
 # LibreSpeed pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/librespeed.svg)](https://dash.yunohost.org/appci/app/librespeed) ![](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg)  ![](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
-[![Installer librespeed avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
+[![Niveau d'intégration](https://dash.yunohost.org/integration/librespeed.svg)](https://dash.yunohost.org/appci/app/librespeed) ![](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)  
+[![Installer LibreSpeed avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 
 *[Read this readme in english.](./README.md)*
 *[Lire ce readme en français.](./README_fr.md)*
 
-> *This package allows you to install librespeed quickly and simply on a YunoHost server.
-If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
+> *Ce package vous permet d'installer LibreSpeed rapidement et simplement sur un serveur YunoHost.
+Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
 
 ## Vue d'ensemble
 
 Test de vitesse de connexion très léger.
 
-**Version incluse:** 5.2.4~ynh1
+**Version incluse :** 5.2.4~ynh1
 
-**Démo:** https://librespeed.org/
-
+**Démo :** https://librespeed.org
 
 ## Captures d'écran
 
-
-   ![](./doc/screenshots/librespeed_screenshot.gif)
-
-
-
+![](./doc/screenshots/librespeed_screenshot.gif)
 
 ## Avertissements / informations importantes
 
@@ -35,16 +30,14 @@ Test de vitesse de connexion très léger.
 * Other infos that people should be aware of :
     * A basic front-end for visualizing and searching tests by ID is available in `domain.tld/results/stats.php`. A password is asked to you during installation steps to access this page. 
 
-
-
 ## Documentations et ressources
 
-* Site official de l'app : https://librespeed.org/
-* Documentation officielle utilisateur: https://github.com/librespeed/speedtest/wiki
-* Documentation officielle de l'admin: https://github.com/librespeed/speedtest/wiki
-* Dépôt de code officiel de l'app:  https://github.com/librespeed/speedtest
-* Documentation YunoHost pour cette app: https://yunohost.org/app_librespeed
-* Signaler un bug: https://github.com/YunoHost-Apps/librespeed_ynh/issues
+* Site officiel de l'app : https://librespeed.org
+* Documentation officielle utilisateur : https://github.com/librespeed/speedtest/wiki
+* Documentation officielle de l'admin : https://github.com/librespeed/speedtest/wiki
+* Dépôt de code officiel de l'app : https://github.com/librespeed/speedtest
+* Documentation YunoHost pour cette app : https://yunohost.org/app_librespeed
+* Signaler un bug : https://github.com/YunoHost-Apps/librespeed_ynh/issues
 
 ## Informations pour les développeurs
 
@@ -53,8 +46,8 @@ Merci de faire vos pull request sur la [branche testing](https://github.com/Yuno
 Pour essayer la branche testing, procédez comme suit.
 ```
 sudo yunohost app install https://github.com/YunoHost-Apps/librespeed_ynh/tree/testing --debug
-or
+ou
 sudo yunohost app upgrade librespeed -u https://github.com/YunoHost-Apps/librespeed_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications:** https://yunohost.org/packaging_apps
+**Plus d'infos sur le packaging d'applications :** https://yunohost.org/packaging_apps
