@@ -6,7 +6,7 @@
         "en": "Very lightweight Speedtest.",
         "fr": "Test de vitesse de connexion très léger."
     },
-    "version": "5.2.4~ynh1",
+    "version": "5.2.5~ynh1",
     "url": "https://librespeed.org/",
     "upstream": {
         "license": "LGPL-3.0-or-later",
@@ -22,7 +22,7 @@
         "email": ""
     },
     "requirements": {
-        "yunohost": ">= 4.2.4"
+        "yunohost": ">= 4.3.6"
     },
     "multi_instance": true,
     "services": [
