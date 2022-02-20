@@ -17,7 +17,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 Very lightweight Speedtest.
 
-**Shipped version:** 5.2.4~ynh1
+**Shipped version:** 5.2.5~ynh1
 
 **Demo:** https://librespeed.org/
 
