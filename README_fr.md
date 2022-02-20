@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Test de vitesse de connexion très léger.
 
-**Version incluse :** 5.2.4~ynh1
+**Version incluse :** 5.2.5~ynh1
 
 **Démo :** https://librespeed.org
 
