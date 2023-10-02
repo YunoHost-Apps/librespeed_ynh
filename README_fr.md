@@ -16,7 +16,18 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-Test de vitesse de connexion très léger.
+Test de vitesse auto-hébergé pour HTML5 et plus. Configuration facile, exemples, configurable, adapté aux appareils mobiles. Prend en charge PHP, Node, plusieurs serveurs, etc.
+
+### Caractéristiques
+
+- Télécharger
+- Télécharger
+-pinger
+- Gigue
+- Adresse IP, FAI, distance du serveur (facultatif)
+- Télémétrie (facultatif)
+- Partage des résultats (facultatif)
+- Plusieurs points de test (facultatif)
 
 **Version incluse :** 5.2.5~ynh1
 
@@ -25,15 +36,6 @@ Test de vitesse de connexion très léger.
 ## Captures d’écran
 
 ![Capture d’écran de LibreSpeed](./doc/screenshots/librespeed_screenshot.gif)
-
-## Avertissements / informations importantes
-
-* Any known limitations, constrains or stuff not working :
-    * Please visit [Troubleshooting, common problems, known limitations](https://github.com/librespeed/speedtest/wiki/Troubleshooting,-common-problems,-known-limitations) for more informations.
-    * Important: ID obfuscation currently only works on 64-bit PHP! You might want to set `$redact_ip_addresses` to true in `results/telemetry_settings.php`, this way, all IP addresses will be removed from the telemetry for better privacy. This is disabled by default.
-
-* Other infos that people should be aware of :
-    * A basic front-end for visualizing and searching tests by ID is available in `domain.tld/results/stats.php`. A password is asked to you during installation steps to access this page. 
 
 ## Documentations et ressources
 
