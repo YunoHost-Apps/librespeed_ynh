@@ -21,8 +21,7 @@ Test de vitesse auto-hébergé pour HTML5 et plus. Configuration facile, exemple
 ### Caractéristiques
 
 - Télécharger
-- Télécharger
--pinger
+- pinger
 - Gigue
 - Adresse IP, FAI, distance du serveur (facultatif)
 - Télémétrie (facultatif)
