@@ -1,7 +1,0 @@
-SOURCE_URL=https://github.com/librespeed/speedtest/archive/refs/tags/5.2.5.tar.gz
-SOURCE_SUM=ed1a1d688201ed40514a68cf46738b4cd1ffee992aa838cf45ecc2fc3485c53b
-SOURCE_SUM_PRG=sha256sum
-SOURCE_FORMAT=tar.gz
-SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=
-SOURCE_EXTRACT=true

@@ -12,16 +12,16 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_script_progression --message="Loading installation settings..." --weight=1
+#REMOVEME? ynh_script_progression --message="Loading installation settings..." --weight=1
 
-app=$YNH_APP_INSTANCE_NAME
+#REMOVEME? app=$YNH_APP_INSTANCE_NAME
 
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-path_url=$(ynh_app_setting_get --app=$app --key=path)
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-password=$(ynh_app_setting_get --app=$app --key=password)
-mail=$(ynh_app_setting_get --app=$app --key=mail)
+#REMOVEME? domain=$(ynh_app_setting_get --app=$app --key=domain)
+#REMOVEME? path=$(ynh_app_setting_get --app=$app --key=path)
+#REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app=$app --key=install_dir)
+#REMOVEME? db_name=$(ynh_app_setting_get --app=$app --key=db_name)
+#REMOVEME? password=$(ynh_app_setting_get --app=$app --key=password)
+#REMOVEME? mail=$(ynh_app_setting_get --app=$app --key=mail)
 
 #=================================================
 # CHECK VERSION
@@ -50,32 +50,32 @@ ynh_script_progression --message="Ensuring downward compatibility..." --weight=2
 if [ -z "$db_name" ]; then
 	db_name=$(ynh_sanitize_dbid --db_name=$app)
 	db_user=$db_name
-	db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
-	ynh_app_setting_set --app=$app --key=db_name --value=$db_name
-	ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
+#REMOVEME? 	db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
+#REMOVEME? 	ynh_app_setting_set --app=$app --key=db_name --value=$db_name
+#REMOVEME? 	ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
 	ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name" \
-            < "$final_path/results/telemetry_mysql.sql"
+            < "$install_dir/results/telemetry_mysql.sql"
 fi
 
-# If final_path doesn't exist, create it
-if [ -z "$final_path" ]; then
-	final_path=/var/www/$app
-	ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+# If install_dir doesn't exist, create it
+if [ -z "$install_dir" ]; then
+#REMOVEME? 	install_dir=/var/www/$app
+#REMOVEME? 	ynh_app_setting_set --app=$app --key=install_dir --value=$install_dir
 fi
 
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=1
+#REMOVEME? ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=1
 
 # Backup the current version of the app
-ynh_backup_before_upgrade
-ynh_clean_setup () {
+#REMOVEME? ynh_backup_before_upgrade
+#REMOVEME? ynh_clean_setup () {
 	# Restore it if the upgrade fails
-	ynh_restore_upgradebackup
+#REMOVEME? 	ynh_restore_upgradebackup
 }
 # Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
+#REMOVEME? ynh_abort_if_errors
 
 #=================================================
 # STANDARD UPGRADE STEPS
@@ -84,10 +84,10 @@ ynh_abort_if_errors
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
-ynh_script_progression --message="Making sure dedicated system user exists..." --weight=4
+#REMOVEME? ynh_script_progression --message="Making sure dedicated system user exists..." --weight=4
 
 # Create a dedicated user (if not existing)
-ynh_system_user_create --username=$app --home_dir="$final_path"
+#REMOVEME? ynh_system_user_create --username=$app --home_dir="$install_dir"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -98,7 +98,7 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=2
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path"
+	ynh_setup_source --dest_dir="$install_dir"
 fi
 
 # FIXME: this should be managed by the core in the future
@@ -107,9 +107,9 @@ fi
 # files in some cases.
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
 # this will be treated as a security issue.
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R $app:www-data "$install_dir"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -139,10 +139,10 @@ then
     
     db_name=$(ynh_sanitize_dbid --db_name=$app)
     db_user=$db_name
-    db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
+#REMOVEME?     db_pwd=$(ynh_app_setting_get --app=$app --key=mysqlpwd)
     
-    conf_telemetry="$final_path/results/telemetry_settings.php"
-    conf_index="$final_path/example-singleServer-full.html"
+    conf_telemetry="$install_dir/results/telemetry_settings.php"
+    conf_index="$install_dir/example-singleServer-full.html"
 
     ynh_replace_string --match_string="stats_password = 'PASSWORD'" --replace_string="stats_password = '$password'" --target_file="$conf_telemetry"
     ynh_replace_string --match_string="MySql_username = 'USERNAME'" --replace_string="MySql_username = '$db_user'" --target_file="$conf_telemetry"
@@ -162,9 +162,9 @@ fi
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=2
+#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..." --weight=2
 
-ynh_systemd_action --service_name=nginx --action=reload
+#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
