@@ -10,118 +10,13 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
-#=================================================
-
-#REMOVEME? ynh_clean_setup () {
-	### Remove this function if there's nothing to clean before calling the remove script.
-	true
-}
-# Exit if an error occurs during the execution of the script
-#REMOVEME? ynh_abort_if_errors
-
-#=================================================
-# RETRIEVE ARGUMENTS FROM THE MANIFEST
-#=================================================
-
-#REMOVEME? domain=$YNH_APP_ARG_DOMAIN
-#REMOVEME? path=$YNH_APP_ARG_PATH
-#REMOVEME? is_public=$YNH_APP_ARG_IS_PUBLIC
-#REMOVEME? password=$YNH_APP_ARG_PASSWORD
-#REMOVEME? mail=$YNH_APP_ARG_MAIL
-
-### If it's a multi-instance app, meaning it can be installed several times independently
-### The id of the app as stated in the manifest is available as $YNH_APP_ID
-### The instance number is available as $YNH_APP_INSTANCE_NUMBER (equals "1", "2"...)
-#REMOVEME? ### The app instance name is available as $YNH_APP_INSTANCE_NAME
-#REMOVEME? ###    - the first time the app is installed, YNH_APP_INSTANCE_NAME = ynhexample
-#REMOVEME? ###    - the second time the app is installed, YNH_APP_INSTANCE_NAME = ynhexample__2
-###    - ynhexample__{N} for the subsequent installations, with N=3,4...
-### The app instance name is probably what interests you most, since this is
-### guaranteed to be unique. This is a good unique identifier to define installation path,
-### db names...
-#REMOVEME? app=$YNH_APP_INSTANCE_NAME
-
-#=================================================
-# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
-#=================================================
-### About --weight and --time
-### ynh_script_progression will show to your final users the progression of each scripts.
-### In order to do that, --weight will represent the relative time of execution compared to the other steps in the script.
-### --time is a packager option, it will show you the execution time since the previous call.
-### This option should be removed before releasing your app.
-### Use the execution time, given by --time, to estimate the weight of a step.
-### A common way to do it is to set a weight equal to the execution time in second +1.
-### The execution time is given for the duration since the previous call. So the weight should be applied to this previous call.
-#REMOVEME? ynh_script_progression --message="Validating installation parameters..." --weight=1
-
-### If the app uses NGINX as web server (written in HTML/PHP in most cases), the final path should be "/var/www/$app".
-### If the app provides an internal web server (or uses another application server such as uWSGI), the final path should be "/opt/yunohost/$app"
-#REMOVEME? install_dir=/var/www/$app
-#REMOVEME? test ! -e "$install_dir" || ynh_die --message="This path already contains a folder"
-
-# Register (book) web path
-#REMOVEME? ynh_webpath_register --app=$app --domain=$domain --path=$path
-
-#=================================================
-# STORE SETTINGS FROM MANIFEST
-#=================================================
-#REMOVEME? ynh_script_progression --message="Storing installation settings..." --weight=3
-
-#REMOVEME? ynh_app_setting_set --app=$app --key=domain --value=$domain
-#REMOVEME? ynh_app_setting_set --app=$app --key=path --value=$path
-#REMOVEME? ynh_app_setting_set --app=$app --key=password --value=$password
-ynh_app_setting_set --app=$app --key=mail --value=$mail
-
-#=================================================
-# STANDARD MODIFICATIONS
-#=================================================
-
-#=================================================
-# CREATE DEDICATED USER
-#=================================================
-#REMOVEME? ynh_script_progression --message="Configuring system user..." --weight=1
-
-# Create a system user
-#REMOVEME? ynh_system_user_create --username=$app --home_dir="$install_dir"
-
-#=================================================
-# CREATE A MYSQL DATABASE
-#=================================================
-#REMOVEME? ynh_script_progression --message="Creating a MySQL database..." --weight=2
-
-### Use these lines if you need a database for the application.
-#REMOVEME? ### `ynh_mysql_setup_db` will create a database, an associated user and a ramdom password.
-### The password will be stored as 'mysqlpwd' into the app settings,
-### and will be available as $db_pwd
-
-
-#REMOVEME? db_name=$(ynh_sanitize_dbid --db_name=$app)
-#REMOVEME? db_user=$db_name
-#REMOVEME? ynh_app_setting_set --app=$app --key=db_name --value=$db_name
-#REMOVEME? ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=2
 
-### `ynh_setup_source` is used to install an app from a zip or tar.gz file,
-### downloaded from an upstream source, like a git repository.
-### `ynh_setup_source` use the file conf/app.src
-
-#REMOVEME? ynh_app_setting_set --app=$app --key=install_dir --value=$install_dir
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 
-# FIXME: this should be managed by the core in the future
-# Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www-data) can access
-# files in some cases.
-# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
-# this will be treated as a security issue.
-
-chmod 750 "$install_dir"
 chown -R $app:www-data $install_dir
 chmod o-rwx $install_dir
 
@@ -130,74 +25,26 @@ chmod o-rwx $install_dir
 #=================================================
 ynh_script_progression --message="Configuring NGINX web server..." --weight=3
 
-### `ynh_add_nginx_config` will use the file conf/nginx.conf
-
 # Create a dedicated NGINX config
 ynh_add_nginx_config
-
-#=================================================
-# PHP-FPM CONFIGURATION
-#=================================================
-ynh_script_progression --message="Configuring PHP-FPM..." --weight=4
-
-### `ynh_add_fpm_config` is used to set up a PHP config.
-### You can remove it if your app doesn't use PHP.
-### `ynh_add_fpm_config` will use the files conf/php-fpm.conf
 
 # Create a dedicated PHP-FPM config
 ynh_add_fpm_config
 
-#=================================================
-# SPECIFIC SETUP
-#=================================================
-#=================================================
-# INITIALIZE DATABASE
-#=================================================
-ynh_script_progression --message="Initializing database..." --weight=3
-
-ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name" \
-    < "$install_dir/results/telemetry_mysql.sql"
+ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name" < "$install_dir/results/telemetry_mysql.sql"
 
 #=================================================
 # CONFIGURE LIBRESPEED
 #=================================================
-ynh_script_progression --message="Configuring LibreSpeed..."
+ynh_script_progression --message="Configuring $app..." --weight=3
 
-conf_telemetry="$install_dir/results/telemetry_settings.php"
-conf_index="$install_dir/example-singleServer-full.html"
+ynh_add_config --template="../conf/telemetry_settings.php" --destination="$install_dir/results/telemetry_settings.php"
+ynh_add_config --template="../conf/example-singleServer-full.html" --destination="$install_dir/singleServer-full.html"
 
-ynh_replace_string --match_string="stats_password = 'PASSWORD'" --replace_string="stats_password = '$password'" --target_file="$conf_telemetry"
-ynh_replace_string --match_string="MySql_username = 'USERNAME'" --replace_string="MySql_username = '$db_user'" --target_file="$conf_telemetry"
-ynh_replace_string --match_string="MySql_password = 'PASSWORD'" --replace_string="MySql_password = '$db_pwd'" --target_file="$conf_telemetry"
-ynh_replace_string --match_string="MySql_databasename = 'DB_NAME'" --replace_string="MySql_databasename = '$db_name'" --target_file="$conf_telemetry"
-ynh_replace_string --match_string="MySql_hostname = 'DB_HOSTNAME'" --replace_string="MySql_hostname = 'localhost'" --target_file="$conf_telemetry"
-
-ynh_replace_string --match_string='<a href="mailto:PUT@YOUR_EMAIL.HERE">TO BE FILLED BY DEVELOPER</a>.' --replace_string='<a href="mailto:'$mail'">'$mail'</a>.' --target_file="$conf_index"
-ynh_replace_string --match_string='LibreSpeed Example' --replace_string='LibreSpeed YunoHost' --target_file="$conf_index"
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-
-#=================================================
-# SETUP SSOWAT
-#=================================================
-#REMOVEME? ynh_script_progression --message="Configuring permissions..." --weight=2
-
-# Make app public if necessary
-#REMOVEME? if [ $is_public -eq 1 ]
-then
-	# Everyone can access the app.
-	# The "main" permission is automatically created before the install script.
-#REMOVEME? 	ynh_permission_update --permission="main" --add="visitors"
-fi
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..." --weight=2
-
-#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
+chmod 400 "$install_dir/results/telemetry_settings.php"
+chmod 400 "$install_dir/singleServer-full.html"
+chown $app:$app "$install_dir/results/telemetry_settings.php"
+chown $app:$app "$install_dir/singleServer-full.html"
 
 #=================================================
 # END OF SCRIPT
