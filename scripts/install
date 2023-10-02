@@ -43,8 +43,8 @@ ynh_add_config --template="../conf/example-singleServer-full.html" --destination
 
 chmod 400 "$install_dir/results/telemetry_settings.php"
 chmod 400 "$install_dir/singleServer-full.html"
-chown $app:$app "$install_dir/results/telemetry_settings.php"
-chown $app:$app "$install_dir/singleServer-full.html"
+chown $app:www-data "$install_dir/results/telemetry_settings.php"
+chown $app:www-data "$install_dir/singleServer-full.html"
 
 #=================================================
 # END OF SCRIPT
