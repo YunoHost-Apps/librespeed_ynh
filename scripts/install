@@ -39,12 +39,12 @@ ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name
 ynh_script_progression --message="Configuring $app..." --weight=3
 
 ynh_add_config --template="../conf/telemetry_settings.php" --destination="$install_dir/results/telemetry_settings.php"
-ynh_add_config --template="../conf/example-singleServer-full.html" --destination="$install_dir/singleServer-full.html"
+ynh_add_config --template="../conf/example-singleServer-full.html" --destination="$install_dir/index.html"
 
 chmod 400 "$install_dir/results/telemetry_settings.php"
-chmod 400 "$install_dir/singleServer-full.html"
+chmod 400 "$install_dir/index.html"
 chown $app:www-data "$install_dir/results/telemetry_settings.php"
-chown $app:www-data "$install_dir/singleServer-full.html"
+chown $app:www-data "$install_dir/index.html"
 
 #=================================================
 # END OF SCRIPT
