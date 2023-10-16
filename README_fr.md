@@ -4,9 +4,7 @@ It shall NOT be edited by hand.
 -->
 
 # LibreSpeed pour YunoHost
-
 [![Niveau d’intégration](https://dash.yunohost.org/integration/librespeed.svg)](https://dash.yunohost.org/appci/app/librespeed) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
-
 [![Installer LibreSpeed avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 
 *[Read this readme in english.](./README.md)*
@@ -37,7 +35,6 @@ Test de vitesse auto-hébergé pour HTML5 et plus. Configuration facile, exemple
 ![Capture d’écran de LibreSpeed](./doc/screenshots/librespeed_screenshot.gif)
 
 ## Documentations et ressources
-
 * Site officiel de l’app : <https://librespeed.org>
 * Documentation officielle utilisateur : <https://github.com/librespeed/speedtest/wiki>
 * Documentation officielle de l’admin : <https://github.com/librespeed/speedtest/wiki>
