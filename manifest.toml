@@ -1,0 +1,72 @@
+packaging_format = 2
+
+id = "librespeed"
+name = "LibreSpeed"
+description.en = "Very lightweight Speedtest"
+description.fr = "Test de vitesse de connexion très léger"
+
+version = "5.2.5~ynh1"
+
+maintainers = ["Augustin Rungeard"]
+
+[upstream]
+license = "LGPL-3.0-or-later"
+website = "https://librespeed.org"
+demo = "https://librespeed.org"
+admindoc = "https://github.com/librespeed/speedtest/wiki"
+userdoc = "https://github.com/librespeed/speedtest/wiki"
+code = "https://github.com/librespeed/speedtest"
+
+[integration]
+yunohost = ">= 11.2"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = false
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/librespeed"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+    [install.password]
+    help.en = "This password allows access to the test statistics"
+    help.fr = "Ce mot de passe permet d'accéder aux statistiques des tests"
+    type = "password"
+
+    [install.mail]
+    ask.en = "E-mail adress to contact"
+    ask.fr = "Couriel de contact"
+    help.en = "E-mail address to contact for stats deletion requests"
+    help.fr = "Couriel à contacter pour demander une suppression des statistiques"
+    type = "string"
+    example = "webmaster@example.com"
+
+[resources]
+        [resources.sources.main]
+        url = "https://github.com/librespeed/speedtest/archive/refs/tags/5.2.5.tar.gz"
+        sha256 = "ed1a1d688201ed40514a68cf46738b4cd1ffee992aa838cf45ecc2fc3485c53b"
+        autoupdate.strategy = "latest_github_tag"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "mariadb-server, php8.2-fpm, php8.2-mysql"
+
+    [resources.database]
+    type = "mysql"
