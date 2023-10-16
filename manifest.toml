@@ -5,7 +5,7 @@ name = "LibreSpeed"
 description.en = "Very lightweight Speedtest"
 description.fr = "Test de vitesse de connexion très léger"
 
-version = "5.2.5~ynh1"
+version = "5.2.5~ynh2"
 
 maintainers = ["Augustin Rungeard"]
 
