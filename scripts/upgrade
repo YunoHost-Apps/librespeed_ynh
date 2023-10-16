@@ -24,7 +24,7 @@ then
 	ynh_script_progression --message="Upgrading source files..." --weight=2
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$install_dir"
+	ynh_setup_source --dest_dir="$install_dir" --keep="results/telemetry_settings.php, index.html"
 fi
 
 chmod -R o-rwx "$install_dir"
@@ -51,17 +51,13 @@ if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
     ynh_script_progression --message="Reconfiguring LibreSpeed..."
 
-    conf_telemetry="$install_dir/results/telemetry_settings.php"
-    conf_index="$install_dir/example-singleServer-full.html"
+    ynh_add_config --template="../conf/telemetry_settings.php" --destination="$install_dir/results/telemetry_settings.php"
+    chmod 650 "$install_dir/results/telemetry_settings.php"
+    chown $app:www-data "$install_dir/results/telemetry_settings.php"
 
-    ynh_replace_string --match_string="stats_password = 'PASSWORD'" --replace_string="stats_password = '$password'" --target_file="$conf_telemetry"
-    ynh_replace_string --match_string="MySql_username = 'USERNAME'" --replace_string="MySql_username = '$db_user'" --target_file="$conf_telemetry"
-    ynh_replace_string --match_string="MySql_password = 'PASSWORD'" --replace_string="MySql_password = '$db_pwd'" --target_file="$conf_telemetry"
-    ynh_replace_string --match_string="MySql_databasename = 'DB_NAME'" --replace_string="MySql_databasename = '$db_name'" --target_file="$conf_telemetry"
-    ynh_replace_string --match_string="MySql_hostname = 'DB_HOSTNAME'" --replace_string="MySql_hostname = 'localhost'" --target_file="$conf_telemetry"
-
-    ynh_replace_string --match_string='<a href="mailto:PUT@YOUR_EMAIL.HERE">TO BE FILLED BY DEVELOPER</a>.' --replace_string='<a href="mailto:'$mail'">'$mail'</a>.' --target_file="$conf_index"
-    ynh_replace_string --match_string='LibreSpeed Example' --replace_string='LibreSpeed YunoHost' --target_file="$conf_index"
+    ynh_add_config --template="../conf/example-singleServer-full.html" --destination="$install_dir/index.html"
+    chmod 650 "$install_dir/index.html"
+    chown $app:www-data "$install_dir/index.html"
 fi
 
 #=================================================
