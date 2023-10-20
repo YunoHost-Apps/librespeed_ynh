@@ -36,7 +36,7 @@ Self-hosted Speed Test for HTML5 and more. Easy setup, examples, configurable, m
 
 ## Screenshots
 
-![Screenshot of LibreSpeed](./doc/screenshots/librespeed_screenshot.gif)
+![Screenshot of LibreSpeed](./doc/screenshots/screenshot.png)
 
 ## Documentation and resources
 
