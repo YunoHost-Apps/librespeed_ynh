@@ -34,7 +34,7 @@ Test de vitesse auto-hébergé pour HTML5 et plus. Configuration facile, exemple
 
 ## Captures d’écran
 
-![Capture d’écran de LibreSpeed](./doc/screenshots/librespeed_screenshot.gif)
+![Capture d’écran de LibreSpeed](./doc/screenshots/screenshot.png)
 
 ## Documentations et ressources
 
