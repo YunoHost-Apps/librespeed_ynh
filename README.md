@@ -44,6 +44,7 @@ Self-hosted Speed Test for HTML5 and more. Easy setup, examples, configurable, m
 * Official user documentation: <https://github.com/librespeed/speedtest/wiki>
 * Official admin documentation: <https://github.com/librespeed/speedtest/wiki>
 * Upstream app code repository: <https://github.com/librespeed/speedtest>
+* YunoHost Store: <https://apps.yunohost.org/app/librespeed>
 * Report a bug: <https://github.com/YunoHost-Apps/librespeed_ynh/issues>
 
 ## Developer info
