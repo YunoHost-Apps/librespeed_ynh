@@ -28,7 +28,7 @@ Test de vitesse auto-hébergé pour HTML5 et plus. Configuration facile, exemple
 - Partage des résultats (facultatif)
 - Plusieurs points de test (facultatif)
 
-**Version incluse :** 5.2.5~ynh2
+**Version incluse :** 5.3.0~ynh1
 
 **Démo :** https://librespeed.org
 
@@ -42,6 +42,7 @@ Test de vitesse auto-hébergé pour HTML5 et plus. Configuration facile, exemple
 * Documentation officielle utilisateur : <https://github.com/librespeed/speedtest/wiki>
 * Documentation officielle de l’admin : <https://github.com/librespeed/speedtest/wiki>
 * Dépôt de code officiel de l’app : <https://github.com/librespeed/speedtest>
+* YunoHost Store: <https://apps.yunohost.org/app/librespeed>
 * Signaler un bug : <https://github.com/YunoHost-Apps/librespeed_ynh/issues>
 
 ## Informations pour les développeurs
