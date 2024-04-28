@@ -30,7 +30,7 @@ Self-hosted Speed Test for HTML5 and more. Easy setup, examples, configurable, m
 - Multiple Points of Test (optional)
 
 
-**Versión proporcionada:** 5.3.0~ynh1
+**Versión proporcionada:** 5.3.1~ynh1
 
 **Demo:** <https://librespeed.org>
 

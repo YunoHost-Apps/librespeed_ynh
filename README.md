@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install LibreSpeed with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install LibreSpeed quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -30,7 +30,7 @@ Self-hosted Speed Test for HTML5 and more. Easy setup, examples, configurable, m
 - Multiple Points of Test (optional)
 
 
-**Shipped version:** 5.3.0~ynh1
+**Shipped version:** 5.3.1~ynh1
 
 **Demo:** <https://librespeed.org>
 
