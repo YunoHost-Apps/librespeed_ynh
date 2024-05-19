@@ -5,7 +5,7 @@ name = "LibreSpeed"
 description.en = "Very lightweight Speedtest"
 description.fr = "Test de vitesse de connexion très léger"
 
-version = "5.3.1~ynh1"
+version = "5.3.2~ynh1"
 
 maintainers = ["Augustin Rungeard"]
 
@@ -57,8 +57,8 @@ ram.runtime = "50M"
 
 [resources]
         [resources.sources.main]
-        url = "https://github.com/librespeed/speedtest/archive/refs/tags/5.3.1.tar.gz"
-        sha256 = "f43efe474998a4cb337f82d8270ee7f5e60566d310155fd51caf20bfd253b5c1"
+        url = "https://github.com/librespeed/speedtest/archive/refs/tags/5.3.2.tar.gz"
+        sha256 = "00afd688e7616b5083752269b840fc59628b776be115930bcb3ea02498c92d90"
         autoupdate.strategy = "latest_github_tag"
 
     [resources.system_user]
