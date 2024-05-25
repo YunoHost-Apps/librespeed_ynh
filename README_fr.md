@@ -28,7 +28,7 @@ Test de vitesse auto-hébergé pour HTML5 et plus. Configuration facile, exemple
 - Partage des résultats (facultatif)
 - Plusieurs points de test (facultatif)
 
-**Version incluse :** 5.3.2~ynh1
+**Version incluse :** 5.3.3~ynh1
 
 **Démo :** <https://librespeed.org>
 
