@@ -10,7 +10,7 @@ ynh_app_setting_set_default --key=php_upload_max_filesize --value=256M
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_setup_source --dest_dir="$install_dir" --keep="results/telemetry_settings.php index.html"
+ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="results/telemetry_settings.php index.html"
 
 chmod -R o-rwx "$install_dir"
 chown -R $app:www-data "$install_dir"
