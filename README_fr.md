@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # LibreSpeed pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/librespeed.svg)](https://dash.yunohost.org/appci/app/librespeed) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/librespeed.svg)](https://ci-apps.yunohost.org/ci/apps/librespeed/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
 
 [![Installer LibreSpeed avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 
@@ -28,7 +28,7 @@ Test de vitesse auto-hébergé pour HTML5 et plus. Configuration facile, exemple
 - Partage des résultats (facultatif)
 - Plusieurs points de test (facultatif)
 
-**Version incluse :** 5.3.3~ynh1
+**Version incluse :** 5.4.0~ynh1
 
 **Démo :** <https://librespeed.org>
 
