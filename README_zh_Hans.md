@@ -5,7 +5,7 @@
 
 # YunoHost 上的 LibreSpeed
 
-[![集成程度](https://dash.yunohost.org/integration/librespeed.svg)](https://dash.yunohost.org/appci/app/librespeed) ![工作状态](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/librespeed.svg)](https://ci-apps.yunohost.org/ci/apps/librespeed/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
 
 [![使用 YunoHost 安装 LibreSpeed](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 
@@ -30,7 +30,7 @@ Self-hosted Speed Test for HTML5 and more. Easy setup, examples, configurable, m
 - Multiple Points of Test (optional)
 
 
-**分发版本：** 5.3.3~ynh1
+**分发版本：** 5.4.0~ynh1
 
 **演示：** <https://librespeed.org>
 

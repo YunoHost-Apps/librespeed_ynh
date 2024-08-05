@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # LibreSpeed YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/librespeed.svg)](https://dash.yunohost.org/appci/app/librespeed) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/librespeed.svg)](https://ci-apps.yunohost.org/ci/apps/librespeed/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
 
 [![Instalatu LibreSpeed YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 
@@ -30,7 +30,7 @@ Self-hosted Speed Test for HTML5 and more. Easy setup, examples, configurable, m
 - Multiple Points of Test (optional)
 
 
-**Paketatutako bertsioa:** 5.3.3~ynh1
+**Paketatutako bertsioa:** 5.4.0~ynh1
 
 **Demoa:** <https://librespeed.org>
 
