@@ -1,50 +1,45 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
-ynh_app_setting_set --app="$app" --key=password --value="$password"
+ynh_app_setting_set --key=php_upload_max_filesize --value=256M
+
+ynh_app_setting_set --key=password --value="$password"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=2
+ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 
-chown -R $app:www-data $install_dir
-chmod o-rwx $install_dir
-
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R $app:www-data $install_dir
+#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod o-rwx $install_dir
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=3
+ynh_script_progression "Configuring NGINX web server..."
 
 # Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 # Create a dedicated PHP-FPM config
-ynh_add_fpm_config
+ynh_config_add_phpfpm
 
-ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name" < "$install_dir/results/telemetry_mysql.sql"
+ynh_mysql_db_shell < "$install_dir/results/telemetry_mysql.sql"
 
 #=================================================
 # CONFIGURE LIBRESPEED
 #=================================================
-ynh_script_progression --message="Configuring $app..." --weight=3
+ynh_script_progression "Configuring $app..."
 
-ynh_add_config --template="telemetry_settings.php" --destination="$install_dir/results/telemetry_settings.php"
-chmod 650 "$install_dir/results/telemetry_settings.php"
-chown $app:www-data "$install_dir/results/telemetry_settings.php"
+ynh_config_add --template="telemetry_settings.php" --destination="$install_dir/results/telemetry_settings.php"
+#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod 650 "$install_dir/results/telemetry_settings.php"
+#REMOVEME? Assuming the file is setup using ynh_config_add, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown $app:www-data "$install_dir/results/telemetry_settings.php"
 
-ynh_add_config --template="example-singleServer-full.html" --destination="$install_dir/index.html"
+ynh_config_add --template="example-singleServer-full.html" --destination="$install_dir/index.html"
 chmod 650 "$install_dir/index.html"
 chown $app:www-data "$install_dir/index.html"
 
@@ -52,4 +47,4 @@ chown $app:www-data "$install_dir/index.html"
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"
