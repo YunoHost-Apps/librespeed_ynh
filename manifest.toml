@@ -18,7 +18,7 @@ userdoc = "https://github.com/librespeed/speedtest/wiki"
 code = "https://github.com/librespeed/speedtest"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 11.2.29"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
