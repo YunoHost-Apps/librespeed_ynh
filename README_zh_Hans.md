@@ -5,7 +5,9 @@
 
 # YunoHost 上的 LibreSpeed
 
-[![集成程度](https://dash.yunohost.org/integration/librespeed.svg)](https://ci-apps.yunohost.org/ci/apps/librespeed/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/librespeed)](https://ci-apps.yunohost.org/ci/apps/librespeed/)
+![工作状态](https://apps.yunohost.org/badge/state/librespeed)
+![维护状态](https://apps.yunohost.org/badge/maintained/librespeed)
 
 [![使用 YunoHost 安装 LibreSpeed](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 

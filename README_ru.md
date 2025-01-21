@@ -5,7 +5,9 @@
 
 # LibreSpeed для YunoHost
 
-[![Уровень интеграции](https://dash.yunohost.org/integration/librespeed.svg)](https://ci-apps.yunohost.org/ci/apps/librespeed/) ![Состояние работы](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![Состояние сопровождения](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
+[![Уровень интеграции](https://apps.yunohost.org/badge/integration/librespeed)](https://ci-apps.yunohost.org/ci/apps/librespeed/)
+![Состояние работы](https://apps.yunohost.org/badge/state/librespeed)
+![Состояние сопровождения](https://apps.yunohost.org/badge/maintained/librespeed)
 
 [![Установите LibreSpeed с YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 
