@@ -18,13 +18,12 @@ userdoc = "https://github.com/librespeed/speedtest/wiki"
 code = "https://github.com/librespeed/speedtest"
 
 [integration]
-yunohost = ">= 11.2.29"
+yunohost = ">= 12.0.9"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 
 ldap = false
-
 sso = false
 
 disk = "50M"
@@ -71,7 +70,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "mariadb-server, php8.2-fpm, php8.2-mysql"
+    packages = "mariadb-server, php8.3-mysql"
 
     [resources.database]
     type = "mysql"
