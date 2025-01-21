@@ -5,7 +5,9 @@ It shall NOT be edited by hand.
 
 # LibreSpeed for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/librespeed.svg)](https://ci-apps.yunohost.org/ci/apps/librespeed/) ![Working status](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
+[![Integration level](https://apps.yunohost.org/badge/integration/librespeed)](https://ci-apps.yunohost.org/ci/apps/librespeed/)
+![Working status](https://apps.yunohost.org/badge/state/librespeed)
+![Maintenance status](https://apps.yunohost.org/badge/maintained/librespeed)
 
 [![Install LibreSpeed with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 

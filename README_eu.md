@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # LibreSpeed YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/librespeed.svg)](https://ci-apps.yunohost.org/ci/apps/librespeed/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/librespeed.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/librespeed.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/librespeed)](https://ci-apps.yunohost.org/ci/apps/librespeed/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/librespeed)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/librespeed)
 
 [![Instalatu LibreSpeed YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=librespeed)
 
