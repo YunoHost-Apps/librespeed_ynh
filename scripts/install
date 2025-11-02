@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source _common.sh
 source /usr/share/yunohost/helpers
 
 ynh_app_setting_set --key=php_upload_max_filesize --value=256M
@@ -33,6 +32,7 @@ ynh_script_progression "Configuring $app..."
 ynh_config_add --template="telemetry_settings.php" --destination="$install_dir/results/telemetry_settings.php"
 
 ynh_config_add --template="example-singleServer-full.html" --destination="$install_dir/index.html"
+
 chmod 650 "$install_dir/index.html"
 chown $app:www-data "$install_dir/index.html"
 

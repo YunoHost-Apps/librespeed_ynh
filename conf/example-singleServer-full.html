@@ -136,6 +136,25 @@ function initUI(){
 	h1{
 		color:#404040;
 	}
+	#loading{
+		background-color:#FFFFFF;
+		color:#404040;
+		text-align:center;
+	}
+	span.loadCircle{
+		display:inline-block;
+		width:2em;
+		height:2em;
+		vertical-align:middle;
+		background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAP1BMVEUAAAB2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZyFzwnAAAAFHRSTlMAEvRFvX406baecwbf0casimhSHyiwmqgAAADpSURBVHja7dbJbQMxAENRahnN5lkc//5rDRAkDeRgHszXgACJoKiIiIiIiIiIiIiIiIiIiIj4HHspsrpAVhdVVguzrA4OWc10WcEqpwKbnBo0OU1Q5NSpsoJFTgOecrrdEag85DRgktNqfoEdTjnd7hrEHMEJvmRUYJbTYk5Agy6nau6Abp5Cm7mDBtRdPi9gyKdU7w4p1fsLvyqs8hl4z9/w3n/Hmr9WoQ65lAU4d7lMYOz//QboRR5jBZibLMZdAR6O/Vfa1PlxNr3XdS3HzK/HVPRu/KnLs8iAOh993VpRRERERMT/fAN60wwWaVyWwAAAAABJRU5ErkJggg==');
+		background-size:2em 2em;
+		margin-right:0.5em;
+		animation: spin 0.6s linear infinite;
+	}
+	@keyframes spin{
+		0%{transform:rotate(0deg);}
+		100%{transform:rotate(359deg);}
+	}
 	#startStopBtn{
 		display:inline-block;
 		margin:0 auto;
@@ -163,6 +182,13 @@ function initUI(){
 	}
 	#startStopBtn.running:before{
 		content:"Abort";
+	}
+	#serverArea{
+		margin-top:1em;
+	}
+	#server{
+		font-size:1em;
+		padding:0.2em;
 	}
 	#test{
 		margin-top:2em;
@@ -259,7 +285,7 @@ function initUI(){
         font-size:0.8em;
         color:#808080;
         padding: 0 3em;
-    }
+	}
     div.closePrivacyPolicy {
         width: 100%;
         text-align: center;
@@ -270,6 +296,51 @@ function initUI(){
 	@media all and (max-width:40em){
 		body{
 			font-size:0.8em;
+		}
+	}
+	div.visible{
+		animation: fadeIn 0.4s;
+		display:block;
+	}
+	div.hidden{
+		animation: fadeOut 0.4s;
+		display:none;
+	}
+	@keyframes fadeIn{
+		0%{
+			opacity:0;
+		}
+		100%{
+			opacity:1;
+		}
+	}
+	@keyframes fadeOut{
+		0%{
+			display:block;
+			opacity:1;
+		}
+		100%{
+			display:block;
+			opacity:0;
+		}
+	}
+	@media all and (prefers-color-scheme: dark){
+		html,body,#loading{
+			background:#202020;
+			color:#F4F4F4;
+			color-scheme:dark;
+		}
+		h1{
+			color:#E0E0E0;
+		}
+		a{
+			color:#9090FF;
+		}
+		#privacyPolicy{
+			background:#000000;
+		}
+		#resultsImg{
+			filter: invert(1);
 		}
 	}
 </style>

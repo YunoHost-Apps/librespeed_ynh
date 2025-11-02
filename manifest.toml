@@ -5,7 +5,7 @@ name = "LibreSpeed"
 description.en = "Very lightweight Speedtest"
 description.fr = "Test de vitesse de connexion très léger"
 
-version = "5.4.1~ynh2"
+version = "5.4.1~ynh3"
 
 maintainers = ["Augustin Rungeard"]
 
@@ -18,7 +18,7 @@ userdoc = "https://github.com/librespeed/speedtest/wiki"
 code = "https://github.com/librespeed/speedtest"
 
 [integration]
-yunohost = ">= 12.0.9"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
